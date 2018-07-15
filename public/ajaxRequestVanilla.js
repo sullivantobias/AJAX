@@ -6,7 +6,7 @@
 (() => {
   const button = document.querySelector("#showInfosVanilla");
   button.addEventListener("click", () => {
-    let courses = {};
+    let infos = {};
     const xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
@@ -26,8 +26,8 @@
         case 4:
           if (this.status === 200) {
             console.log("request finished and response is ready ", this.status);
-            courses = JSON.parse(this.responseText);
-            const prefix = courses.First;
+            infos = JSON.parse(this.responseText);
+            const prefix = infos.First;
             const name = "<b>Name</b> : " + prefix.name + "</br>";
             const surname = "<b>Surname</b> : " + prefix.surname + "</br>";
             const country = "<b>country</b> : " + prefix.country + "</br>";

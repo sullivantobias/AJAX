@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-var path = require("path");
+const path = require("path");
 
-app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist/"));
-
-/** use of the public folder */
-app.use("/public", express.static(__dirname + "/public"));
+/** Load Libraries and use public folder */
+app.use("/axios", express.static(__dirname + "/node_modules/axios/dist/"))
+.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist/"))
+.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname + "/index.html"));
