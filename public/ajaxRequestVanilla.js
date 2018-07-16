@@ -1,6 +1,7 @@
 /**
  * Ajax  Request
  * Dependencies : None
+ * Method : GET
  */
 
 (() => {
@@ -27,29 +28,53 @@
           if (this.status === 200) {
             console.log("request finished and response is ready ", this.status);
             infos = JSON.parse(this.responseText);
-            const prefix = infos.First;
-            const name = "<b>Name</b> : " + prefix.name + "</br>";
-            const surname = "<b>Surname</b> : " + prefix.surname + "</br>";
-            const country = "<b>country</b> : " + prefix.country + "</br>";
-            const activity = "<b>activity</b> : " + prefix.activity + "</br>";
-            document.querySelector("#infos").innerHTML =
-              "<p>" +
-              name +
-              " " +
-              surname +
-              " " +
-              country +
-              " " +
-              activity +
-              "</p>";
-          }
-          break;
+            let prefix = infos;
 
-        default:
-          break;
+            for (firstKey in prefix) {
+              let prefixFormat = prefix[firstKey];
+
+              const name = "<b>Name</b> : " + prefixFormat.name + "</br>";
+              const surname =
+                "<b>Surname</b> : " + prefixFormat.surname + "</br>";
+              const country =
+                "<b>country</b> : " + prefixFormat.country + "</br>";
+              const activity =
+                "<b>activity</b> : " + prefixFormat.activity + "</br>";
+              document.querySelector("#infos").innerHTML +=
+                "<p>" +
+                name +
+                " " +
+                surname +
+                " " +
+                country +
+                " " +
+                activity +
+                "</p>";
+            }
+            break;
+          }
       }
     };
     xmlhttp.open("GET", "public/data/people.json", true);
     xmlhttp.send(null);
+  });
+})();
+
+/**
+ * Ajax  Request
+ * Dependencies : None
+ * Method : POST
+ */
+
+(() => {
+  const button = document.querySelector("#showInfosVanillaPOST");
+  button.addEventListener("click", () => {
+    const xmlhttp = new XMLHttpRequest();
+
+  
+
+    xmlhttp.open("POST", "public/text.js", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send("Test = blbalb");
   });
 })();

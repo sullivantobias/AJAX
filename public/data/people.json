@@ -1,8 +1,14 @@
 {
-  "First": {
+  "Father": {
     "name": "Simpson",
     "surname": "Homer",
     "country": "USA",
     "activity": "Drink Beers"
+  },
+  "Son": {
+    "name": "Simpson",
+    "surname": "Bart",
+    "country": "USA",
+    "activity": "Skateboard"
   }
 }
