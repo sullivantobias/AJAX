@@ -59,22 +59,3 @@
     xmlhttp.send(null);
   });
 })();
-
-/**
- * Ajax  Request
- * Dependencies : None
- * Method : POST
- */
-
-(() => {
-  const button = document.querySelector("#showInfosVanillaPOST");
-  button.addEventListener("click", () => {
-    const xmlhttp = new XMLHttpRequest();
-
-  
-
-    xmlhttp.open("POST", "public/text.js", true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send("Test = blbalb");
-  });
-})();

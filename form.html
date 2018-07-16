@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="#" method="post" name="ajaxForm">
+        Name
+        <input type="text" name="surname">
+        <input type="submit" value="Send" id="send">
+    </form>
+
+    <script>
+
+        /**
+ * Ajax  Request
+ * Dependencies : None
+ * Method : POST
+ */
+
+        (() => {
+            const button = document.querySelector("#send");
+            button.addEventListener("click", () => {
+                const http = new XMLHttpRequest();
+                const url = "/form";
+
+                http.open("POST", url, true);
+
+                //Send the proper header information along with the request
+                http.setRequestHeader("Content-type", "application/json");
+
+                http.onreadystatechange = function () {
+                    //Call a function when the state changes.
+                    if (http.readyState == 4 && http.status == 200) {
+                        console.log(document.forms[0].elements[0].value);   
+                    }
+                };
+                http.send();
+            });
+        })();
+    </script>
+</body>
+
+</html>
