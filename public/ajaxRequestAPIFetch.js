@@ -5,7 +5,6 @@
 
 const button = document.querySelector("#showInfosFetchAPI");
 button.addEventListener("click", () => {
-    
   const init = {
     method: "GET",
     cache: "default"
@@ -17,13 +16,25 @@ button.addEventListener("click", () => {
     })
     .then(responseJson => {
       let infos = JSON.parse(responseJson);
+      let prefix = infos;
 
-      const prefix = infos.First;
-      const name = "<b>Name</b> : " + prefix.name + "</br>";
-      const surname = "<b>Surname</b> : " + prefix.surname + "</br>";
-      const country = "<b>country</b> : " + prefix.country + "</br>";
-      const activity = "<b>activity</b> : " + prefix.activity + "</br>";
-      document.querySelector("#infos").innerHTML =
-        "<p>" + name + " " + surname + " " + country + " " + activity + "</p>";
+      for (firstKey in prefix) {
+        let prefixFormat = prefix[firstKey];
+
+        const name = "<b>Name</b> : " + prefixFormat.name + "</br>";
+        const surname = "<b>Surname</b> : " + prefixFormat.surname + "</br>";
+        const country = "<b>country</b> : " + prefixFormat.country + "</br>";
+        const activity = "<b>activity</b> : " + prefixFormat.activity + "</br>";
+        document.querySelector("#infos").innerHTML +=
+          "<p>" +
+          name +
+          " " +
+          surname +
+          " " +
+          country +
+          " " +
+          activity +
+          "</p>";
+      }
     });
 });
