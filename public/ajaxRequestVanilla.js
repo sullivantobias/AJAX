@@ -5,72 +5,66 @@
  */
 
 (() => {
-    const button = document.querySelector('#showInfosVanilla');
-    button.addEventListener('click', () => {
-        let infos = {};
-        const xmlhttp = new XMLHttpRequest();
+   const button = document.querySelector('#showInfosVanilla');
+   button.addEventListener('click', () => {
+      let infos = {};
+      const xmlhttp = new XMLHttpRequest();
 
-        xmlhttp.onreadystatechange = function() {
-            switch (this.readyState) {
-            case 1:
-                // console.log('server connection established ', this.status);
-                break;
+      xmlhttp.onreadystatechange = function() {
+         switch (this.readyState) {
+         case 1:
+            // console.log('server connection established ', this.status);
+            break;
 
-            case 2:
-                // console.log('request received ', this.status);
-                break;
+         case 2:
+            // console.log('request received ', this.status);
+            break;
 
-            case 3:
-                // console.log('processing request ', this.status);
-                break;
+         case 3:
+            // console.log('processing request ', this.status);
+            break;
 
-            case 4:
-                if (this.status === 200) {
-                    /* console.log(
+         case 4:
+            if (this.status === 200) {
+               /* console.log(
                         'request finished and response is ready ',
                         this.status
                     );*/
-                    infos = JSON.parse(this.responseText);
-                    let prefix = infos;
+               infos = JSON.parse(this.responseText);
+               let prefix = infos;
 
-                    for (let firstKey in prefix) {
-                        if (prefix) {
-                            let prefixFormat = prefix[firstKey];
+               for (let firstKey in prefix) {
+                  if (prefix) {
+                     let prefixFormat = prefix[firstKey];
 
-                            const name =
-                                    '<b>Name</b> : ' +
-                                    prefixFormat.name +
-                                    '</br>';
-                            const surname =
-                                    '<b>Surname</b> : ' +
-                                    prefixFormat.surname +
-                                    '</br>';
-                            const country =
-                                    '<b>country</b> : ' +
-                                    prefixFormat.country +
-                                    '</br>';
-                            const activity =
-                                    '<b>activity</b> : ' +
-                                    prefixFormat.activity +
-                                    '</br>';
-                            document.querySelector('#infos').innerHTML +=
-                                    '<p>' +
-                                    name +
-                                    ' ' +
-                                    surname +
-                                    ' ' +
-                                    country +
-                                    ' ' +
-                                    activity +
-                                    '</p>';
-                        }
-                    }
+                     const name =
+                           '<b>Name</b> : ' + prefixFormat.name + '</br>';
+                     const surname =
+                           '<b>Surname</b> : ' + prefixFormat.surname + '</br>';
+                     const country =
+                           '<b>country</b> : ' + prefixFormat.country + '</br>';
+                     const activity =
+                           '<b>activity</b> : ' +
+                           prefixFormat.activity +
+                           '</br>';
+                     document.querySelector('#infos').innerHTML +=
+                           '<p>' +
+                           name +
+                           ' ' +
+                           surname +
+                           ' ' +
+                           country +
+                           ' ' +
+                           activity +
+                           '</p>';
+                  }
+               }
 
-                    break;
-                }
+               break;
             }
-        };
-        xmlhttp.open('GET', 'public/data/people.json', true);
-        xmlhttp.send(null);
-    });
+         }
+      };
+      xmlhttp.open('GET', 'public/data/people.json', true);
+      xmlhttp.send(null);
+   });
 })();

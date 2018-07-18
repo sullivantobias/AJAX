@@ -1,17 +1,17 @@
 {
-  "name": "test-express-serveur",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "jquery": "^3.3.1"
-  }
+   "name": "test-express-serveur",
+   "version": "1.0.0",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "",
+   "license": "ISC",
+   "description": "",
+   "dependencies": {
+      "axios": "^0.18.0",
+      "body-parser": "^1.18.3",
+      "express": "^4.16.3",
+      "jquery": "^3.3.1"
+   }
 }
